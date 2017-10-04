@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Grid from './grid.jsx'
+import Grid from './grid.jsx';
+import Buttons from './buttons.jsx';
+import {Container} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
 class Main extends React.Component{
@@ -65,6 +68,25 @@ class Main extends React.Component{
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.play, this.speed);
   }
+
+  pauseButton = () => {
+    clearInterval(this.intervalId);
+  }
+  slow = () => {
+    this.speed = 1000;
+    this.playButton();
+  }
+  fast = () => {
+    this.speed = 100;
+    this.playButton();
+  }
+  clear = () => {
+    var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
+    this.setState({
+      gridFull:grid,
+      generations:0
+    })
+  }
   componentDidMount() {
     this.seed()
   }
@@ -73,6 +95,15 @@ class Main extends React.Component{
     return (
       <div>
         <h1>The Game of Life</h1>
+        <Buttons
+          playButton={this.playButton}
+          pauseButton={this.pauseButton}
+          slow={this.slow}
+          fast={this.fast}
+          clear={this.clear}
+          seed={this.seed}
+          gridSize={this.gridSize}
+        />
         <Grid
         gridFull={this.state.gridFull}
         rows={this.rows}
