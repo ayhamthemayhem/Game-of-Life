@@ -3,16 +3,17 @@ import {Button, ButtonGroup} from 'reactstrap';
 
 class Buttons extends React.Component {
   render() {
+    const { playButton, pauseButton, clear, slow, fast, seed } = this.props;
     return (
       <div className='center'>
-        <ButtonGroup>
-        <Button outline color="secondary" onClick={this.props.playButton}>play</Button>
-        <Button outline color="secondary" onClick={this.props.pauseButton}>Pause</Button>
-        <Button outline color="secondary" onClick={this.props.clear}>Clear</Button>
-        <Button outline color="secondary" onClick={this.props.slow}>Slow</Button>
-        <Button outline color="secondary" onClick={this.props.fast}>Fast</Button>
-        <Button outline color="secondary" onClick={this.props.seed}>Seed</Button>
-        </ButtonGroup>
+
+        <Button outline color="success" onClick={playButton}>play</Button>
+        <Button outline color="success" onClick={pauseButton}>Pause</Button>
+        <Button outline color="success" onClick={clear}>Clear</Button>
+        <Button outline color="success" onClick={slow}>Slow</Button>
+        <Button outline color="success" onClick={fast}>Fast</Button>
+        <Button outline color="success" onClick={seed}>Seed</Button>
+      
       </div>
 
     )

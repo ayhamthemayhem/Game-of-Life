@@ -20,13 +20,13 @@ class Main extends React.Component{
 
   selectBox = (row,col) => {
     let gridCopy = arrayClone(this.state.gridFull);
-    console.log(gridCopy);
     gridCopy[row][col] = !gridCopy[row][col];
     this.setState({
       gridFull:gridCopy
     })
   }
   seed = () => {
+    this.clear();
     let gridCopy = arrayClone(this.state.gridFull);
     for(let i = 0; i<this.rows; i++) {
       for(let j = 0 ; j< this.cols; j++) {
@@ -81,6 +81,7 @@ class Main extends React.Component{
     this.playButton();
   }
   clear = () => {
+    this.pauseButton();
     var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
     this.setState({
       gridFull:grid,
@@ -92,9 +93,10 @@ class Main extends React.Component{
   }
   render() {
     console.log(this.cols);
+    const { generations, gridFull } = this.state;
     return (
       <div>
-        <h1>The Game of Life</h1>
+        <h1>GAME OF LIFE</h1>
         <Buttons
           playButton={this.playButton}
           pauseButton={this.pauseButton}
@@ -105,12 +107,12 @@ class Main extends React.Component{
           gridSize={this.gridSize}
         />
         <Grid
-        gridFull={this.state.gridFull}
+        gridFull={gridFull}
         rows={this.rows}
         cols={this.cols}
         selectBox={this.selectBox}
         />
-        <h2>Generations: {this.state.generations}</h2>
+        <h2>Generations: {generations}</h2>
       </div>
     )
   }

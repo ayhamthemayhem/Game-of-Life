@@ -1,6 +1,15 @@
-html , body {
-  height: 100%;
-  background: linear-gradient(45deg, #002d40 6%, #002d40 15%, #e54661 130%);
+body {
+  background-color: #011627;
+  color:#1287ba;
+  height:100%;
+}
+#root {
+  font-family: 'Source Code Pro', monospace;
+  padding-top: 10px;
+  text-align: center;
+  height:100vh;
+  color:#1287ba;
+  background-color: #011627;
 }
 .box {
   border-radius: 1px;
@@ -10,7 +19,7 @@ html , body {
   height: 15px;
   margin-left: -1px;
   margin-bottom: -1px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid #1287ba;
   }
 
 .off {
@@ -18,7 +27,7 @@ html , body {
 }
 
 .on {
-  background-color: #d9d9d9;
+  background-color: #28a745;
 }
 
 .box:hover {
@@ -27,28 +36,30 @@ html , body {
 }
 
 .center {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   display: table;
-  margin-top: 10px;
 }
 
 .grid {
-  background-color: inherit;
   width: 150px;
   line-height: 0;
   margin: auto;
-  margin-top: 20px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-h1, h2, h3, h4 {
-  color: white;
+#root h1 {
+  font-weight: lighter;
   margin: auto;
-  text-align: center;
   width: 50%;
-  margin-top: 10px;
+  padding: 20px;
 }
 
-h4 {
-  margin-top: 0px;
+h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+#root button  {
+  margin-right: 10px;
 }
